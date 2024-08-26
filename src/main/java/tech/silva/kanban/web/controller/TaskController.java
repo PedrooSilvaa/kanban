@@ -30,6 +30,12 @@ public class TaskController {
         List<Task> tasks = taskService.findAllByStatus(status);
         return ResponseEntity.ok().body(TaskResponseDto.toListResponse(tasks));
     }
+
+    @PutMapping("/{status}/{id}")
+    public ResponseEntity<Void> updateStatus(@PathVariable String status, @PathVariable Long id){
+        taskService.updateStatus(status, id);
+        return ResponseEntity.noContent().build();
+    }
 }
 
 

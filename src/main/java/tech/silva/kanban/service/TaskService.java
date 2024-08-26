@@ -37,4 +37,15 @@ public class TaskService {
             default -> throw new IllegalStateException("Unexpected value: " + status);
         };
     }
+
+    public void updateStatus(String status, Long id) {
+        Task task = iTaskRepository.findById(id).orElse(null);
+        switch (status){
+            case "BACKLOG" -> task.setStatus(Task.Status.BACKLOG);
+            case "SPRINT" -> task.setStatus(Task.Status.SPRINT);
+            case "PROGRESS" -> task.setStatus(Task.Status.PROGRESS);
+            case "DONE" -> task.setStatus(Task.Status.DONE);
+        }
+        iTaskRepository.save(task);
+    }
 }
