@@ -18,9 +18,16 @@ public class Task {
     public enum Status{
         BACKLOG, SPRINT, PROGRESS, DONE
     }
-    public Task(Long id, String title) {
+
+    public Task(Long id, String title, Status status) {
         this.id = id;
         this.title = title;
+        this.status = status;
+    }
+
+    public Task(String title, Status status) {
+        this.title = title;
+        this.status = status;
     }
 
     public Task() {
@@ -40,5 +47,13 @@ public class Task {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
