@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tasks")
-public class tasks {
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,12 +12,18 @@ public class tasks {
 
     private String  title;
 
-    public tasks(Long id, String title) {
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    public enum Status{
+        BACKLOG, SPRINT, PROGRESS, DONE
+    }
+    public Task(Long id, String title) {
         this.id = id;
         this.title = title;
     }
 
-    public tasks() {
+    public Task() {
     }
 
     public Long getId() {
