@@ -46,4 +46,8 @@ public class TaskService {
         }
         iTaskRepository.save(task);
     }
+
+    public void deleteById(Long id) {
+        iTaskRepository.deleteById(id);
+    }
 }
