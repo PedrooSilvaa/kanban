@@ -20,12 +20,6 @@ public class TaskService {
     public Task saveTask(TaskCreateDto taskCreateDto) {
         Task task = new Task();
         task.setTitle(taskCreateDto.title());
-        switch (taskCreateDto.status()){
-            case "BACKLOG" -> task.setStatus(Task.Status.BACKLOG);
-            case "SPRINT" -> task.setStatus(Task.Status.SPRINT);
-            case "PROGRESS" -> task.setStatus(Task.Status.PROGRESS);
-            case "DONE" -> task.setStatus(Task.Status.DONE);
-        }
         return iTaskRepository.save(task);
     }
 

@@ -13,7 +13,7 @@ public class Task {
     private String  title;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.BACKLOG;
 
     public enum Status{
         BACKLOG, SPRINT, PROGRESS, DONE
